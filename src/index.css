@@ -1,5 +1,6 @@
 :root {
   --primary-blue: #1a73e8;
+  --background-blue: #f0f4ff;
   --text-dark: #202124;
   --text-light: #5f6368;
 }
@@ -12,7 +13,7 @@
 }
 
 body {
-  background: linear-gradient(135deg, #e8f0fe 0%, #d7e3fc 100%);
+  background: var(--background-blue);
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -21,59 +22,63 @@ body {
 
 .container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 20px;
   display: flex;
   background: white;
   border-radius: 24px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   overflow: hidden;
+  min-height: 800px;
 }
 
 .login-form-side {
   flex: 1;
-  padding: 60px;
+  padding: 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
+  padding-top: 120px;
 }
 
 .shield-icon {
   color: var(--primary-blue);
   margin-bottom: 24px;
-  width: 48px;
-  height: 48px;
+  width: 56px;
+  height: 56px;
 }
 
 .header {
   text-align: center;
-  margin-bottom: 48px;
+  margin-bottom: 40px;
 }
 
 .header h2 {
   color: var(--text-dark);
-  font-size: 32px;
+  font-size: 36px;
   margin-bottom: 12px;
+  font-weight: 500;
 }
 
 .header p {
   color: var(--text-light);
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .form {
   width: 100%;
-  max-width: 400px;
+  max-width: 440px;
 }
 
 .form-group {
-  margin-bottom: 28px;
+  margin-bottom: 24px;
 }
 
 .form-group label {
   display: block;
   color: var(--text-dark);
-  font-size: 16px;
+  font-size: 18px;
   margin-bottom: 12px;
 }
 
@@ -86,17 +91,17 @@ body {
   left: 16px;
   top: 50%;
   transform: translateY(-50%);
-  color: var(--text-light);
+  color: var(--primary-blue);
   width: 24px;
   height: 24px;
 }
 
 .input-container input {
   width: 100%;
-  padding: 16px 16px 16px 52px;
+  padding: 18px 18px 18px 52px;
   border: 1px solid #dadce0;
   border-radius: 12px;
-  font-size: 16px;
+  font-size: 18px;
   outline: none;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
@@ -108,15 +113,16 @@ body {
 
 .submit-button {
   width: 100%;
-  padding: 16px;
+  padding: 18px;
   background-color: var(--primary-blue);
   color: white;
   border: none;
   border-radius: 12px;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 500;
   cursor: pointer;
   transition: background-color 0.2s;
+  margin-top: 8px;
 }
 
 .submit-button:hover {
@@ -138,11 +144,12 @@ body {
 
 .camera-side {
   flex: 1;
-  padding: 60px;
-  background: linear-gradient(135deg, #e8f0fe 0%, #eff2f8 100%);
+  padding: 80px;
+  background: #f8f9fa;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 .camera-header {
@@ -150,34 +157,32 @@ body {
   align-items: center;
   gap: 12px;
   margin-bottom: 32px;
+  color: var(--primary-blue);
 }
 
 .camera-header svg {
-  color: var(--primary-blue);
   width: 28px;
   height: 28px;
 }
 
 .camera-header span {
   color: var(--text-dark);
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 500;
 }
 
 .camera-container {
   width: 100%;
-  max-width: 480px;
+  max-width: 520px;
 }
 
 .camera-view {
   width: 100%;
-  aspect-ratio: 4 / 3;
-  background: black;
+  aspect-ratio: 4/3;
+  background: white;
   border-radius: 16px;
   overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .camera-view video {
@@ -197,6 +202,47 @@ body {
   color: #d93025;
   text-align: center;
   font-size: 16px;
+}
+
+.processing-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+  color: var(--primary-blue);
+}
+
+.processing-dots {
+  display: flex;
+  gap: 4px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--primary-blue);
+  border-radius: 50%;
+  animation: pulse 1.4s infinite;
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
 }
 
 @media (max-width: 768px) {

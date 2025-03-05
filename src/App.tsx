@@ -6,6 +6,7 @@ function App() {
   const [password, setPassword] = useState('');
   const videoRef = useRef<HTMLVideoElement>(null);
   const [cameraError, setCameraError] = useState('');
+  const [isProcessing, setIsProcessing] = useState(true);
 
   useEffect(() => {
     startCamera();
@@ -25,7 +26,7 @@ function App() {
       console.error('Error accessing camera:', err);
     }
   };
-  
+
   const stopCamera = () => {
     if (videoRef.current && videoRef.current.srcObject) {
       const stream = videoRef.current.srcObject as MediaStream;
@@ -112,6 +113,17 @@ function App() {
           <div className="camera-status">
             Posicione seu Qr Code no centro da câmera para verificação de identidade.
           </div>
+
+          {isProcessing && (
+            <div className="processing-container">
+              <span>Processando</span>
+              <div className="processing-dots">
+                <div className="dot"></div>
+                <div className="dot"></div>
+                <div className="dot"></div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
